@@ -11,9 +11,20 @@ public class EmpleadoPlanilla extends Empleado {
 	@Override
 	public void registrarDatos() {
 		super.registrarDatos();
-		
-		salarioMensual=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el salario mensual"));
-		porcentajeAdicionalPorHoraExtra=Double.parseDouble(JOptionPane.showInputDialog("Ingrese porcentaje adicional por hora extra"));
+		try {
+			salarioMensual=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el salario Mensual"));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Por favor ingresar Cantidad en numeros");			
+			salarioMensual=Double.parseDouble(JOptionPane.showInputDialog("Ingrese el salario Mensual"));
+		}
+		try {
+			porcentajeAdicionalPorHoraExtra=Double.parseDouble(JOptionPane.
+					showInputDialog("Ingrese el porcentaje Adicional por hora Extra"));
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Por favor ingresar Cantidad en numeros");
+			porcentajeAdicionalPorHoraExtra=Double.parseDouble(JOptionPane.
+					showInputDialog("Ingrese el porcentaje Adicional por hora Extra"));
+		}
 	}
 	@Override
 	public void imprimirDatosPersona(String datos) {

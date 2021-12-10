@@ -5,12 +5,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.swing.JOptionPane;
-
+import Procesos.Procesos;
 import clases.empleado.EmpleadoEventual;
 import clases.empleado.EmpleadoPlanilla;
 import clases.empleado.Medico;
 
 public class ModeloDatos {
+	
+	Procesos proceso=new Procesos;
 	
 	HashMap<String, Pacientes> pacientesMap;
 	HashMap<String,EmpleadoPlanilla> empleadosPlanillaMap;
@@ -27,21 +29,60 @@ public class ModeloDatos {
 	}
 	
 	public void registrarPersona(Pacientes miPacientes) {
-		pacientesMap.put(miPacientes.getNumeroDeDNI(), miPacientes);
-		JOptionPane.showMessageDialog(null, "Se ha registrado el pciente "+miPacientes.getNombre()+" satisfactoriamente");
+		if (pacientesMap.containsKey(miPacientes.getNumeroDeDNI())) {
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miPacientes.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(empleadosPlanillaMap.containsKey(miPacientes.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miPacientes.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(empleadosEventualMap.containsKey(miPacientes.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miPacientes.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(medicosMap.containsKey(miPacientes.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miPacientes.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else {
+			pacientesMap.put(miPacientes.getNumeroDeDNI(),miPacientes);
+			JOptionPane.showMessageDialog(null, "Se ha registrado el paciente "+miPacientes.getNombre()+" exitosamente");
+		}
 	}
 	public void registrarPersona(EmpleadoPlanilla miEmpleadoPlanilla) {
-		empleadosPlanillaMap.put(miEmpleadoPlanilla.getNumeroDeDNI(), miEmpleadoPlanilla);
-		JOptionPane.showMessageDialog(null, "Se ha registrado el empleado por planilla "+miEmpleadoPlanilla.getNombre()+" satisfactoriamente");
+		if (pacientesMap.containsKey(miEmpleadoPlanilla.getNumeroDeDNI())) {
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miEmpleadoPlanilla.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(empleadosPlanillaMap.containsKey(miEmpleadoPlanilla.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miEmpleadoPlanilla.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(empleadosEventualMap.containsKey(miEmpleadoPlanilla.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miEmpleadoPlanilla.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(medicosMap.containsKey(miEmpleadoPlanilla.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miEmpleadoPlanilla.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else {
+			empleadosPlanillaMap.put(miEmpleadoPlanilla.getNumeroDeDNI(), miEmpleadoPlanilla);
+			JOptionPane.showMessageDialog(null, "Se ha registrado el paciente "+miEmpleadoPlanilla.getNombre()+" exitosamente");
+		}
 	}
 	public void registrarPersona(EmpleadoEventual miEmpleadoEventual) {
-		empleadosEventualMap.put(miEmpleadoEventual.getNumeroDeDNI(), miEmpleadoEventual);
-		JOptionPane.showMessageDialog(null, "Se ha registrado el empleado eventual "+miEmpleadoEventual.getNombre()+" satisfactoriamente");
-		
+		if (pacientesMap.containsKey(miEmpleadoEventual.getNumeroDeDNI())) {
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miEmpleadoEventual.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(empleadosPlanillaMap.containsKey(miEmpleadoEventual.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miEmpleadoEventual.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(empleadosEventualMap.containsKey(miEmpleadoEventual.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miEmpleadoEventual.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(medicosMap.containsKey(miEmpleadoEventual.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+miEmpleadoEventual.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else {
+			empleadosEventualMap.put(miEmpleadoEventual.getNumeroDeDNI(), miEmpleadoEventual);
+			JOptionPane.showMessageDialog(null, "Se ha registrado el paciente "+miEmpleadoEventual.getNombre()+" exitosamente");
+		}
 	}
 	public void registrarPersona(Medico mimMedico) {
-		medicosMap.put(mimMedico.getNumeroDeDNI(), mimMedico);
-		JOptionPane.showMessageDialog(null, "Se ha registrado el medico "+mimMedico.getNombre()+" satisfactoriamente");
+		if (pacientesMap.containsKey(mimMedico.getNumeroDeDNI())) {
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+mimMedico.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(empleadosPlanillaMap.containsKey(mimMedico.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+mimMedico.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(empleadosEventualMap.containsKey(mimMedico.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+mimMedico.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else if(medicosMap.containsKey(mimMedico.getNumeroDeDNI())){
+			JOptionPane.showMessageDialog(null, "El numero de DNI "+mimMedico.getNumeroDeDNI()+" ya esta registrado, por favor ingrese nuevamente los datos");
+		}else {
+			medicosMap.put(mimMedico.getNumeroDeDNI(), mimMedico);
+			JOptionPane.showMessageDialog(null, "Se ha registrado el paciente "+mimMedico.getNombre()+" exitosamente");
+		}
 	}
 
 	public void imprimirMedicos() {
@@ -118,6 +159,21 @@ public class ModeloDatos {
 			}
 		}else {
 			JOptionPane.showInputDialog("No existen citas programadas");
+		}
+	}
+
+	public void consultarPorDNI(String key) {
+		if (pacientesMap.containsKey(key)) {
+			pacientesMap.get(key).imprimirDatosPersona("Corresponde a Paciente\n\n");
+		}else if(empleadosPlanillaMap.containsKey(key)) {
+			empleadosPlanillaMap.get(key).imprimirDatosPersona("Corresponde a Empleado de Planilla\n\n");
+		}else if(empleadosEventualMap.containsKey(key)) {
+			empleadosEventualMap.get(key).imprimirDatosPersona("Corresponde a Empleado Eventual\n\n");
+		}else if(medicosMap.containsKey(key)) {
+			medicosMap.get(key).imprimirDatosPersona("Corresponde a un Medico\n\n");
+		}else {
+			JOptionPane.showMessageDialog(null, "El documento es inexistente");
+			proceso.presentarMenuOpciones();
 		}
 	}
 	

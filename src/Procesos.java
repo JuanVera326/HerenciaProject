@@ -19,23 +19,35 @@ public class Procesos {
 		menu+="2. Registrar Empleado\n";
 		menu+="3. Registrar Cita Medica\n";
 		menu+="4. Imprimir Informacion\n";
-		menu+="5. Salir\n";
+		menu+="5. Buscar por DNI\n";
+		menu+="6. Salir \n";
 		menu+="Ingrese una opcion\n";
 		
 		int opcion=0;
 		
 		do {
-			opcion=Integer.parseInt(JOptionPane.showInputDialog(menu));
+			try {
+				opcion=Integer.parseInt(JOptionPane.showInputDialog(menu));
+			} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Por favor introduzca los numeros del menu");
+		}
 			switch (opcion) {
 			case 1: registrarPaciente();	break;
 			case 2: resgistrarEmpleado();	break;
 			case 3: registrarCitaMedica();	break;	
 			case 4: imprimirInformacion();	break;
-			case 5: JOptionPane.showMessageDialog(null, "El Sistema ha terminado!!");	break;
+			case 5: buscarPorDNI();			break;
+			case 6: JOptionPane.showMessageDialog(null, "El Sistema ha terminado!!");	break;
 			default:
 			JOptionPane.showMessageDialog(null, "El codigo no existe, verifique nuevamente");
 			break;}
 		} while (opcion!=5);
+	}
+
+	private void buscarPorDNI() {
+		String pr="Busqueda por DNI!!!";
+		String key=JOptionPane.showInputDialog(pr+"\n\nIngrese el documento a consultar");
+		miModeloDatos.consultarPorDNI(key);
 	}
 
 	private void imprimirInformacion() {
